@@ -324,7 +324,6 @@ function ThreeUIBookCard({
         </div>
       </div>
 
-      {/* 100% Unobstructed Top-Level Button - Placed AFTER all visuals with Z-50 */}
       <button
         type="button"
         aria-label={`Select ${edition.name} Edition`}
@@ -333,6 +332,12 @@ function ThreeUIBookCard({
           if (e.button === 0) {
             handleClick(e);
           }
+        }}
+        onTouchStart={(e) => {
+          e.stopPropagation();
+        }}
+        onTouchEnd={(e) => {
+          e.stopPropagation();
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
